@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
    
-    validates: uniqueness: false
+    validates :username, uniqueness: false
     
 end
 

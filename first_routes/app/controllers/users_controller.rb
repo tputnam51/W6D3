@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     end
 
     def create      
-        user = User.new(params.require(:user).permit(:name, :email))
+        user = User.new(params.require(:user).permit(:username))
         if user.save
             render json: user
         else
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
 
         # unless user.nil?
-        if user.update_attributes(params.require(:user).permit(:name, :email))
+        if user.update_attributes(params.require(:user).permit(:username))
             render json: user
         else
             render json: user.errors.full_messages, status: 404
