@@ -8,9 +8,7 @@
 #  artist_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-# def helper(user_id)
-#     Artwork.joins(:artworks_shared).where("artworks_shared.viewer_id = user_id OR artworks.artist_id = user_id", user_id)
-# end
+#
 
 # Artwork
 #     .joins(:artworks_shared)
@@ -31,6 +29,11 @@ class Artwork < ApplicationRecord
     has_many :shared_viewers,
     through: :artworks_shares,
     source: :viewer
+
+    has_many :artwork_comments,
+        foreign_key: :artist_id,
+        class_name: :Comment,
+        dependent: :destroy
 
     validates :title, :image_url, :artist_id, presence: true
     validates :title, uniqueness: { scope: :artist_id}
