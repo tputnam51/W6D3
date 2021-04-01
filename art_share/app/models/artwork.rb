@@ -8,7 +8,15 @@
 #  artist_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+
+Artwork
+    .joins(:artworks_shared)
+    .where()
+    .where(artist_id: params[:user_id])
+    
+    
+
+
 class Artwork < ApplicationRecord
     has_many :artworks_shares,
     foreign_key: :artwork_id,
