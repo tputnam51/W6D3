@@ -8,11 +8,13 @@
 #  artist_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+# def helper(user_id)
+#     Artwork.joins(:artworks_shared).where("artworks_shared.viewer_id = user_id OR artworks.artist_id = user_id", user_id)
+# end
 
-Artwork
-    .joins(:artworks_shared)
-    .where()
-    .where(artist_id: params[:user_id])
+# Artwork
+#     .joins(:artworks_shared)
+#     .where(artist_id: params[:user_id])
     
     
 
@@ -32,4 +34,5 @@ class Artwork < ApplicationRecord
 
     validates :title, :image_url, :artist_id, presence: true
     validates :title, uniqueness: { scope: :artist_id}
+
 end
