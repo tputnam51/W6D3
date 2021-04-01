@@ -17,6 +17,9 @@
     artwork_2 = Artwork.create( {title: 'waterfront', image_url: 'www.waterfront.com', artist_id: user_2.id})
     artwork_3 = Artwork.create( {title: 'rolling hills', image_url: 'www.rollinghills.com', artist_id: user_4.id})
     artwork_4 = Artwork.create( {title: 'sunset', image_url: 'www.sunset.com', artist_id: user_3.id})
+    artwork_5 = Artwork.create!( {title: 'sunset', image_url: 'www.sunsetjane.com', artist_id: 5})
 
-    artwork_share = ArtworkShare.create( {artwork_id: artwork_2.id , viewer_id: user_1.id })
-    artwork_share_1 = ArtworkShare.create( {artwork_id: artwork_4.id, viewer_id: user_3.id })
+    artwork_share = ArtworkShare.create!( {artwork_id: 2, viewer_id: 1 })
+    artwork_share_1 = ArtworkShare.create!( {artwork_id: 4, viewer_id: 3 })
+    artwork_share_2 = ArtworkShare.create!( {artwork_id: 4, viewer_id: 2 })
+    

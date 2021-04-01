@@ -19,7 +19,7 @@ class Artwork < ApplicationRecord
     class_name: :User
 
     has_many :shared_viewers,
-    through: :artwork_shares,
+    through: :artworks_shares,
     source: :viewer
 
     validates :title, :image_url, :artist_id, presence: true
